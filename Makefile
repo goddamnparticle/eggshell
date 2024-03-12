@@ -2,7 +2,8 @@ CC = gcc
 CXX = g++
 CFLAGS = -Wall -g
 CXXFLAGS = -Wall -g
-INCLUDES = -I./include
+INCLUDES_C = -I./include/c
+INCLUDES_CPP = -I./include/cpp
 C_SOURCE_DIR = src/c
 CPP_SOURCE_DIR = src/cpp
 BUILD_DIR = build
@@ -21,21 +22,21 @@ all: $(C_EXECUTABLE) $(CPP_EXECUTABLE)
 
 # rule for building C shell
 $(C_EXECUTABLE): $(C_OBJECTS)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^
+	$(CC) $(CFLAGS) $(INCLUDES_C) -o $@ $^
 
 # rule for building C++ shell
 $(CPP_EXECUTABLE): $(CPP_OBJECTS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^
+	$(CXX) $(CXXFLAGS) $(INCLUDES_CPP) -o $@ $^
 
 # rule for building C objects
 $(BUILD_C_DIR)/%.o: $(C_SOURCE_DIR)/%.c
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES_C) -c $< -o $@
 
 # rule for building C++ objects
 $(BUILD_CPP_DIR)/%.o: $(CPP_SOURCE_DIR)/%.cpp
 	mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES_CPP) -c $< -o $@
 
 # rule for cleaning the project
 clean:
