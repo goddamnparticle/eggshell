@@ -31,6 +31,9 @@ int main(int argc, char** argv)
     char *command = parsed_input_command[0];
     if(!strcmp(command, "clear")) {
         clear_terminal();
+    } else if(!strcmp(command, "exit")){
+        printf("Terminating\n");
+        exit(0);
     } else {
         printf("command:%s,%d\n",command ,strcmp(command, "clear"));
         printf("Please enter a valid command!\n");
