@@ -10,5 +10,6 @@ void clear_terminal();
 // Parse input command
 char** parse_input_command(char *input_command);
 void free_input_command(char**input_command);
+void organize_command(char *input_command);
 
 #endif  //UTILITIS_H

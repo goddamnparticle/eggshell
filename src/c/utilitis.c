@@ -47,3 +47,22 @@ void free_input_command(char**input_command) {
     
     free(input_command);
 }
+
+void organize_command(char *input_command){
+    int i = 0;
+    while(input_command[i] !='\0') {
+        if (input_command[i]=='\n'){
+            deleteAtIndex(input_command, i);
+        }
+        i++;
+    }
+    printf("%s", input_command);
+}
+
+void deleteAtIndex(char *str, int index) {
+    int len = strlen(str);
+    
+    if (index >= 0 && index < len) {
+        memmove(&str[index], &str[index + 1], len - index); // Shift characters to the left
+    }
+}

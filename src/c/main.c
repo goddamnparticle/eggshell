@@ -29,6 +29,10 @@ int main(int argc, char** argv)
     char **parsed_input_command = parse_input_command(command_input);
 
     char *command = parsed_input_command[0];
+
+    
+    organize_command(command);
+
     if(!strcmp(command, "clear")) {
         clear_terminal();
     } else if(!strcmp(command, "exit")){
