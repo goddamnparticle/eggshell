@@ -100,3 +100,17 @@ void current_path_command() {
         printf("error occured\n");
     }
 }
+
+
+void create_file_command(char *file_name){
+    FILE *file_pointer;
+
+    file_pointer = fopen(file_name, "w");
+
+    if (file_pointer == NULL) {
+        printf("Error: Unable to create the file.\n");
+    } else {
+    fclose(file_pointer);
+    printf("File created successfully.\n");
+    }
+}

@@ -22,4 +22,7 @@ void create_folder( char *folder_name);
 // Current path
 void current_path_command();
 
+// Create a file
+void create_file_command();
+
 #endif  //UTILITIS_H

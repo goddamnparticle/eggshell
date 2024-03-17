@@ -46,6 +46,8 @@ int main(int argc, char** argv)
         create_folder(arg1);
     } else if (!strcmp(command, "pwd")){
         current_path_command();
+    } else if (!strcmp(command, "touch") && strcmp(arg1, "")) {
+        create_file_command(arg1);
     } else {
         printf("Please enter a valid command!\n");
     }
