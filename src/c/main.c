@@ -33,11 +33,13 @@ int main(int argc, char** argv)
     
     organize_command(command);
 
-    if(!strcmp(command, "clear")) {
+    if (!strcmp(command, "clear")) {
         clear_terminal();
-    } else if(!strcmp(command, "exit")){
+    } else if (!strcmp(command, "exit")){
         printf("Terminating\n");
         exit(0);
+    } else if (!strcmp(command, "help")){
+        help_command();
     } else {
         printf("command:%s,%d\n",command ,strcmp(command, "clear"));
         printf("Please enter a valid command!\n");

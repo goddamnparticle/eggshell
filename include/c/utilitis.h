@@ -11,5 +11,9 @@ void clear_terminal();
 char** parse_input_command(char *input_command);
 void free_input_command(char**input_command);
 void organize_command(char *input_command);
+void deleteAtIndex(char *str, int index);
+
+// Help command
+void help_command();
 
 #endif  //UTILITIS_H

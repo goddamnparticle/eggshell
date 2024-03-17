@@ -4,19 +4,19 @@
 
 #include "utilitis.h"
 
-// Welcome print
+// Welcome print------------------------------------------------------------------------------------------
 void welcome_print() {
     printf("┏┓┏┓┏┓  ┏┓┓┏┏┓┓ ┓   ┏┓\n");
     printf("┣ ┃┓┃┓  ┗┓┣┫┣ ┃ ┃   ┃\n");
     printf("┗┛┗┛┗┛  ┗┛┛┗┗┛┗┛┗┛  ┗┛\n");
 }
 
-// Clear terminal
+// Clear terminal-----------------------------------------------------------------------------------------
 void clear_terminal() {
     system("clear");
 }
 
-// Parse input command
+// Parse input command------------------------------------------------------------------------------------
 #define MAX_TOKENS 5
 #define MAX_TOKEN_LENGTH 20
 
@@ -56,7 +56,6 @@ void organize_command(char *input_command){
         }
         i++;
     }
-    printf("%s", input_command);
 }
 
 void deleteAtIndex(char *str, int index) {
@@ -65,4 +64,11 @@ void deleteAtIndex(char *str, int index) {
     if (index >= 0 && index < len) {
         memmove(&str[index], &str[index + 1], len - index); // Shift characters to the left
     }
+}
+
+// Help command -----------------------------------------------------------------------------------
+void help_command() {
+    printf("# Terminal Commands ------------\n");
+    printf("* clear: clear terminal\n");
+    printf("* exit: exit terminal\n");
 }
