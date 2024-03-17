@@ -76,6 +76,10 @@ void help_command() {
     printf("# Terminal Commands ------------\n");
     printf("* clear: clear terminal\n");
     printf("* exit: exit terminal\n");
+    printf("* mkdir <folder name>: create foler\n");
+    printf("* touch <file_name>: create file\n");
+    printf("* pwd: current path\n");
+    printf("* ls: list directiories\n");
 }
 
 // Create Folder command -----------------------------------------------------------------------------------
