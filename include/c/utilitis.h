@@ -4,7 +4,7 @@
 // Welcome print
 void welcome_print();
 
-// Clear terminal
+// Clear terminal command
 void clear_terminal();
 
 // Parse input command
@@ -18,5 +18,8 @@ void help_command();
 
 // Create folder command
 void create_folder( char *folder_name);
+
+// Current path
+void current_path_command();
 
 #endif  //UTILITIS_H

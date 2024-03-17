@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 #include "utilitis.h"
 
@@ -76,6 +77,7 @@ void help_command() {
     printf("* exit: exit terminal\n");
 }
 
+// Create Folder command -----------------------------------------------------------------------------------
 void create_folder( char *folder_name){
     bool is_succes = mkdir(folder_name, 0777);
 
@@ -83,5 +85,18 @@ void create_folder( char *folder_name){
         printf("Directory created successfully.\n");
     } else {
         printf("Unable to create directory. Please check if it already exists or if you have sufficient permissions.\n");
+    }
+}
+
+// Current path command -----------------------------------------------------------------------------------
+void current_path_command() {
+    char cwd[1024];
+
+    getcwd(cwd, sizeof(cwd));
+
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Current path: %s\n", cwd);
+    } else {
+        printf("error occured\n");
     }
 }

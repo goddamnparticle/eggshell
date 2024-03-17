@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <unistd.h>
 
 #include "utilitis.h"
 
@@ -45,6 +44,8 @@ int main(int argc, char** argv)
         help_command();
     } else if (!strcmp(command, "mkdir") && strcmp(arg1, "")) {
         create_folder(arg1);
+    } else if (!strcmp(command, "pwd")){
+        current_path_command();
     } else {
         printf("Please enter a valid command!\n");
     }
