@@ -25,4 +25,7 @@ void current_path_command();
 // Create a file
 void create_file_command();
 
+// list directories
+void list_dir_command();
+
 #endif  //UTILITIS_H

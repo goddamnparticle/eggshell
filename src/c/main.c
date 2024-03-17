@@ -48,6 +48,8 @@ int main(int argc, char** argv)
         current_path_command();
     } else if (!strcmp(command, "touch") && strcmp(arg1, "")) {
         create_file_command(arg1);
+    } else if (!strcmp(command, "ls")) {
+      list_dir_command();  
     } else {
         printf("Please enter a valid command!\n");
     }

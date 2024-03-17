@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <dirent.h>
 
 #include "utilitis.h"
 
@@ -101,7 +102,6 @@ void current_path_command() {
     }
 }
 
-
 void create_file_command(char *file_name){
     FILE *file_pointer;
 
@@ -112,5 +112,26 @@ void create_file_command(char *file_name){
     } else {
     fclose(file_pointer);
     printf("File created successfully.\n");
+    }
+}
+
+// list directories
+void list_dir_command() {
+    DIR *directory;
+    struct dirent *entry;
+    char cwd[1024];
+
+    getcwd(cwd, sizeof(cwd));
+
+    directory = opendir(cwd);
+
+    if (directory == NULL) {
+        printf("Error: Unable to open directory.\n");
+    } else {
+        while ((entry = readdir(directory)) != NULL) {
+            printf("%s\n", entry->d_name);
+        }
+
+    closedir(directory);
     }
 }
