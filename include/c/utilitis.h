@@ -16,4 +16,7 @@ void deleteAtIndex(char *str, int index);
 // Help command
 void help_command();
 
+// Create folder command
+void create_folder( char *folder_name);
+
 #endif  //UTILITIS_H

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+#include <sys/stat.h>
 
 #include "utilitis.h"
 
@@ -9,6 +11,7 @@ void welcome_print() {
     printf("┏┓┏┓┏┓  ┏┓┓┏┏┓┓ ┓   ┏┓\n");
     printf("┣ ┃┓┃┓  ┗┓┣┫┣ ┃ ┃   ┃\n");
     printf("┗┛┗┛┗┛  ┗┛┛┗┗┛┗┛┗┛  ┗┛\n");
+    printf("\n* Enter `help` command for help\n\n");
 }
 
 // Clear terminal-----------------------------------------------------------------------------------------
@@ -71,4 +74,14 @@ void help_command() {
     printf("# Terminal Commands ------------\n");
     printf("* clear: clear terminal\n");
     printf("* exit: exit terminal\n");
+}
+
+void create_folder( char *folder_name){
+    bool is_succes = mkdir(folder_name, 0777);
+
+    if (is_succes == 0) {
+        printf("Directory created successfully.\n");
+    } else {
+        printf("Unable to create directory. Please check if it already exists or if you have sufficient permissions.\n");
+    }
 }

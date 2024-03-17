@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <unistd.h>
 
 #include "utilitis.h"
 
@@ -29,9 +30,11 @@ int main(int argc, char** argv)
     char **parsed_input_command = parse_input_command(command_input);
 
     char *command = parsed_input_command[0];
-
+    char *arg1 = parsed_input_command[1];
+    
     
     organize_command(command);
+    organize_command(arg1);
 
     if (!strcmp(command, "clear")) {
         clear_terminal();
@@ -40,14 +43,16 @@ int main(int argc, char** argv)
         exit(0);
     } else if (!strcmp(command, "help")){
         help_command();
+    } else if (!strcmp(command, "mkdir") && strcmp(arg1, "")) {
+        create_folder(arg1);
     } else {
-        printf("command:%s,%d\n",command ,strcmp(command, "clear"));
         printf("Please enter a valid command!\n");
     }
 
     free_input_command(parsed_input_command);
     free(command_input);
     free(command);
+    free(arg1);
 
     }
 
